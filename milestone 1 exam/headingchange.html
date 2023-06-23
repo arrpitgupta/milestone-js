@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Platform</title>
+    <script>
+        function changeHeading() {
+            var heading = document.getElementById("heading");
+            if (heading.innerHTML === "The most affordable learning platform") {
+                heading.innerHTML = "PW Skills";
+            } else {
+                heading.innerHTML = "The most affordable learning platform";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 id="heading">The most affordable learning platform</h1>
+    <button onclick="changeHeading()">Change Heading</button>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Shopping</title>
+    <script>
+        // Function to check for duplicate items in the cart
+        function checkDuplicate(item) {
+            const cartItems = document.getElementsByClassName("cart-item");
+
+            for (const i = 0; i < cartItems.length; i++) {
+                if (cartItems[i].innerText === item) {
+                    alert("Item already added to the cart!");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // Function to add items to the cart
+        function addToCart() {
+            const item = document.getElementById("item-input").value;
+
+            if (item === "") {
+                alert("Please enter an item to add to the cart!");
+                return;
+            }
+
+            if (!checkDuplicate(item)) {
+                return;
+            }
+
+            const cart = document.getElementById("cart");
+            const listItem = document.createElement("li");
+            listItem.className = "cart-item";
+            listItem.innerText = item;
+            cart.appendChild(listItem);
+
+            // Clear the input field after adding the item
+            document.getElementById("item-input").value = "";
+        }
+    </script>
+    <style>
+        /* Add some basic styling for demonstration purposes */
+        #cart {
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Shopping</h1>
+
+    <input type="text" id="item-input" placeholder="Enter an item">
+    <button onclick="addToCart()">Add to Cart</button>
+
+    <h2>Cart</h2>
+    <ul id="cart"></ul>
+</body>
+</html>

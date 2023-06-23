@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email vaildator</title>
+</head>
+<body>
+    <form id="login-form">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Submit</button>
+      </form>
+      <p id="error-message"></p>
+      <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            let emailInput = document.getElementById("email");
+            let passwordInput = document.getElementById("password");
+            let errorMessage = document.getElementById("error-message");
+
+            // Validate email
+            if (!emailInput.value.includes("@")) {
+                errorMessage.textContent = "Invalid email or password!";
+                errorMessage.style.color = "red";
+                return; // Exit the function if email is invalid
+            }
+
+            // Validate password
+            if (passwordInput.value.length < 8) {
+                errorMessage.textContent = "Invalid email or password!";
+                errorMessage.style.color = "red";
+                return; // Exit the function if password is invalid
+            }
+
+            // Clear error message if both email and password are valid
+            errorMessage.textContent = "Valid email and password!";
+            errorMessage.style.color = "green";
+            });
+
+    </script>
+      
+</body>
+</html>
